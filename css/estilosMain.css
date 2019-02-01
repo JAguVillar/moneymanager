@@ -1,0 +1,29 @@
+* {
+    font-family: 'Nunito', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url(/img/undraw_wallet_aym5.svg);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 45%;
+    background-position: right bottom;
+}
+
+#contenedorMain {
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    grid-column-gap: 30px;
+}
+
+#texto {
+    margin-top: 30%;
+}
+
