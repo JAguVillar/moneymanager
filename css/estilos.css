@@ -67,14 +67,20 @@ body {
 
 #botonGasto {
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    font-weight: 700
 }
 
 #linkEstadisticas {
 }
 
+#buscador {
+    display: flex;
+    padding: 10px 0 10px 0;
+}
+
+#buscador > input {
+    width: 100%;
+}
 /*-------------------------*/
 
 /* GASTOS */

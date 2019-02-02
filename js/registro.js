@@ -4,5 +4,28 @@ $.getJSON('https://openexchangerates.org/api/currencies.json', function (data) {
     $.each(data, function (i, currency) {
         seleccion += `<option value="` + i + `">` + data[i] + `</option>`;
     });
-    $("#divisas").html(seleccion);
+    $("#selectDivisas").html(seleccion);
 });
+
+function registro(params) {
+    var nombre = $("#inputNombre").val();
+    var email = $("#inputEmail").val();
+    var contra = $("#inputContra").val();
+    var divisa = $("#selectDivisas").val();
+
+    $.ajax({
+        url: "php/registro.php",
+        dataType: "text",
+        method: "POST",
+        data: {
+            nombre : nombre,
+            email :  email,
+            contra : contra,
+            divisa : divisa,
+        },
+        success: function (response) {
+            console.log("Registro exitoso");
+        }
+    });
+}
+
