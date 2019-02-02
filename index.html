@@ -63,11 +63,11 @@
   <div class="modal fade" id="modalNuevoGasto" tabindex="-1" role="dialog" aria-labelledby="modalNuevoGasto"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" style="background: #191970;">
+      <div class="modal-content">
         <div class="modal-header" style="border: none;">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">Agregar</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"><i class="fas fa-times" style="color: whitesmoke;"></i></span>
+            <span aria-hidden="true"><i class="fas fa-times" style="color: mediumslateblue;"></i></span>
           </button>
         </div>
         <div class="modal-body">
@@ -89,14 +89,15 @@
               <div class="formMid">
                 <div>
                   <label for="cantidadModal" style="font-weight:700">Monto</label>
-                  <select class="form-control" id="cantidadModal">
-                    <option>+</option>
-                    <option>-</option>
+                  <select class="form-control" id="cantidadModal" onchange="color(this.value)">
+                    <option value=""></option>
+                    <option value="mas">+</option>
+                    <option value="menos">-</option>
                   </select>
                 </div>
                 <div>
                   <label for="dineroModal"></label>
-                  <input type="number" class="form-control" id="dineroModal" placeholder="Ingrese un monto">
+                  <input type="number" class="form-control" id="dineroModal" placeholder="Ingrese un monto" style="color: black">
                 </div>
               </div>
             </div>
@@ -109,9 +110,8 @@
           </div>
         </div>
         <div class="modal-footer" style="border: none;">
-          <button type="button" class="btn btn-link" data-dismiss="modal" style="color: deeppink">Close</button>
-          <button type="button" class="btn btn-primary" id="btnGuardar" style="background-color: deeppink; border: none;">Save
-            changes</button>
+          <button type="button" class="btn btn" data-dismiss="modal" style="color: mediumslateblue">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btnGuardar" style="background-color: mediumslateblue; border: none;">Guardar Cambios</button>
         </div>
       </div>
     </div>
@@ -148,6 +148,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
   crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-<script src="js/main.js"></script>
+<script src="js/index.js"></script>
 
 </html>
