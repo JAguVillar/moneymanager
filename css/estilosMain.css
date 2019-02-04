@@ -9,21 +9,178 @@ html {
 }
 
 body {
-    background-image: url('https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/wallet_aym5.svg');
+    background: #f9f9f9;
     height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 45%;
-    background-position: right bottom;
 }
 
-#contenedorMain {
+/* NAV */
+
+#dropdownMenuButton {
+    background: none;
+    border: none;
+    color: black;
+}
+
+/* DIV CABECERA, PLATA */
+
+#banner {
+    height: 100px;
+    width: 100%;
+}
+
+#infoExpensas {
+}
+
+#expensas { 
     display: grid;
-    grid-template-columns: 600px 1fr;
-    grid-column-gap: 30px;
+    grid-template-columns: 300px 1fr;
+    margin: 0 auto;
+    padding: 0;
+    color: black;
+    align-items: flex-end;
 }
 
-#texto {
-    margin-top: 30%;
+#actualmente {
+    padding: none;
+    font-size: 2.5em;
+    font-weight: 700;
 }
 
+#gastado {
+    font-size: 25px;
+    font-weight: 550;
+    float: left;
+}
+
+/*-------------------------*/
+
+/* SECCION AGREGAR, QUITAR, STATS */
+
+#seleccion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0;
+}
+
+#botonGasto {
+    justify-content: center;
+    font-weight: 700
+}
+
+#linkEstadisticas {
+}
+
+#buscador {
+    display: flex;
+    padding: 10px 0 10px 0;
+}
+
+#buscador > input {
+    width: 100%;
+}
+/*-------------------------*/
+
+/* GASTOS */
+
+#gasto {
+    width: 1180px;
+    margin: auto;
+    background: whitesmoke;
+    border-top: 4px solid  #fa5252;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.fila-top{
+    display: grid;
+    padding: 8px;
+    grid-template-columns: 1fr 1fr;
+}
+
+#gananciaoGasto {
+    font-weight: 700;
+}
+
+#cantidadGasto {
+    font-weight: 700;
+    text-align: right;
+}
+
+.fila-medio {
+    display: grid;
+    padding: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: #a1a1a1;
+}
+
+#tipoGasto, #horaGasto, #fechaGasto {
+    font-weight: 600;
+}
+
+#horaGasto {
+    text-align: left;
+}
+
+#fechaGasto {
+    text-align: left;
+}
+
+
+.fila-abajo {
+    color: #aaa;
+    display: grid;
+    padding: 8px;
+    grid-template-columns: 1fr;
+}
+
+#descripcionGasto {
+    font-weight: 500;
+}
+
+/*-------------------------*/
+
+/* MODAL */
+
+#modalNuevoGasto {
+    
+}
+
+.formularioGasto {
+    
+}
+
+.formTop, .formMid, .formBot {
+    display: grid;
+    align-items: flex-end;
+}
+
+.formTop {
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.formMid {
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.formBot {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/*-------------------------*/
