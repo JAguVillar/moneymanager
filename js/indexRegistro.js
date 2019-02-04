@@ -7,14 +7,14 @@ $.getJSON('https://openexchangerates.org/api/currencies.json', function (data) {
     $("#selectDivisas").html(seleccion);
 });
 
-function registro(params) {
+function registro() {
     var nombre = $("#inputNombre").val();
     var email = $("#inputEmail").val();
     var contra = $("#inputContra").val();
     var divisa = $("#selectDivisas").val();
 
     $.ajax({
-        url: "php/registro.php",
+        url: "../php/registro.php",
         dataType: "text",
         method: "POST",
         data: {
@@ -24,7 +24,7 @@ function registro(params) {
             divisa : divisa,
         },
         success: function (response) {
-            console.log("Registro exitoso");
+            console.log("Logeo exitoso");
         }
     });
 }
