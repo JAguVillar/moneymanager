@@ -10,6 +10,7 @@
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v0.0.1/css/unicons.css">
     <link rel="stylesheet" href="../css/estilosRegistro.css">
 
     <title>Document</title>
@@ -31,7 +32,7 @@
             <div class="form-group">
                 <div class="input-group mb-2">
                     <div class="input-group-prepend">
-                        <div class="input-group-text" style="background: none;"><i class="fas fa-user-circle" style="color: #a1a1a1"></i></div>
+                        <div class="input-group-text" style="background: none;"><i class="uil uil-user-circle" style="color: #00C6CF"></i></div>
                     </div>
                     <input type="text" class="form-control" id="inputNombre" placeholder="Ingrese su nombre">
                 </div>
@@ -39,7 +40,7 @@
             <div class="form-group">
                 <div class="input-group mb-2">
                     <div class="input-group-prepend">
-                        <div class="input-group-text" style="background: none;"><i class="fas fa-at" style="color: #a1a1a1"></i></div>
+                        <div class="input-group-text" style="background: none;"><i class="uil uil-at" style="color: #00C6CF"></i></div>
                     </div>
                     <input type="text" class="form-control" id="inputEmail" placeholder="Ingrese su email">
                 </div>
@@ -47,7 +48,7 @@
             <div class="form-group">
                 <div class="input-group mb-2">
                     <div class="input-group-prepend">
-                        <div class="input-group-text" style="background: none;""><i class=" fas fa-eye-slash" style="color: #a1a1a1"></i></div>
+                        <div class="input-group-text" style="background: none;""><i class="uil uil-eye-slash" style="color: #00C6CF"></i></div>
                     </div>
                     <input type="password" class="form-control" id="inputContra" placeholder="Ingrese una contraseña">
                 </div>
@@ -56,9 +57,11 @@
             </select>
             <div id="botones" class="d-flex justify-content-end" style="margin-top: 10px">
                 <a href="../html/index.html">
-                    <button type="button" class="btn btn-outline-light" id="btnLogin" data-toggle="modal" data-target="#modalLogin" style="border: 0.5px solid #00C6CF; color: #00C6CF; margin-right: 10px;">Volver a Inicio</button>
+                    <button type="button" class="btn btn-outline-light" id="btnLogin" data-toggle="modal" data-target="#modalLogin"
+                        style="border: 0.5px solid #00C6CF; color: #00C6CF; margin-right: 10px;">Volver a Inicio</button>
                 </a>
-                <button type="button" class="btn btn-primary" id="btnReg" style="background-color: #00C6CF; border: none;" onclick="registro()">Registrarse</button>
+                <button type="button" class="btn btn-primary" id="btnReg" style="background-color: #00C6CF; border: none;"
+                    onclick="registro()">Registrarse</button>
             </div>
         </div>
     </div>
@@ -73,4 +76,5 @@
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script src="../js/indexRegistro.js"></script>
+
 </html>
