@@ -12,8 +12,10 @@ function login() {
         },
         success: function (response) {
             console.log(response);             
+            window.location.replace("../html/main.html")
+        },
+        error: {
+            
         }
     });
-
-
 }

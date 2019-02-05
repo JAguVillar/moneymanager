@@ -12,7 +12,6 @@
         die("Conexion Fallo".mysqli_connect_error());
     }
     else {
-        echo "Conexion Exito";
     }
 
     header("Access-Control-Allow-Origin: *");
@@ -21,7 +20,12 @@
     $contra = $_POST["contra"];
 
 
-    $sql = "SELECT nombre, email, pass, divisa FROM usuarios";
+    $sql = "SELECT nombre, email, pass, divisa FROM usuarios WHERE email = '$email' AND pass = '$contra'";
 
-    $consulta=$conn->prepare($sql);
+    $resultado = array();
+    $consulta = $conn->query($sql);
+    while ($row = $consulta->fetch_assoc()) {
+        $resultado[] = $row;
+    }
+    echo json_encode($resultado);
 ?>

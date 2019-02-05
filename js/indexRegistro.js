@@ -24,7 +24,7 @@ function registro() {
             divisa : divisa,
         },
         success: function (response) {
-            console.log("Logeo exitoso");
+            console.log("Registrado");
         }
     });
 }
