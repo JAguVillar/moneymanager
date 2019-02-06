@@ -18,10 +18,10 @@ function registro() {
         dataType: "text",
         method: "POST",
         data: {
-            nombre : nombre,
-            email :  email,
-            contra : contra,
-            divisa : divisa,
+            nombre: nombre,
+            email: email,
+            contra: contra,
+            divisa: divisa,
         },
         success: function (response) {
             console.log("Registrado");
