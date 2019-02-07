@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v0.0.1/css/unicons.css">
-  <link rel="stylesheet" href="https://cssans.pro/dist/cssans.min.css">
-  <link rel="stylesheet" href="../css/estilosMain.css" />
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@3/dist/themes/light.css" />
+  <link <link rel="stylesheet" href="../css/estilosMain.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <title>Document</title>
 </head>
@@ -28,11 +28,16 @@
   <div id="include"></div>
 
   <div id="bannerCont" class="container-fluid">
-    <div id="banner"></div>
+    <div id="banner" class="container" style="padding: 0">
+      <p style="font-weight: 600; margin: 0">Bienvenido,</p>
+      <p id="nombre" style="font-weight: 700; font-size: 1.5em; margin: 0"></p>
+    </div>
     <div id="infoExpensas">
       <div class="container" id="expensas">
         <div>
-          <p style="margin: 0">Balance<a href="#"><i class='uil uil-pen'></i></a></p>
+          <p style="margin: 0;">Balance<a href="#" data-tippy="Editar Balance" data-tippy-arrow="true"
+              data-tippy-arrowType="rounded" data-tippy-placement="right" data-tippy-theme="light" style="color: inherit; text-align: right"><i
+                class='uil uil-pen'></i></a></p>
           <span id="actualmente">$150.000</span>
         </div>
         <div>
@@ -159,6 +164,7 @@
   </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
   crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"

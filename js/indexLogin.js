@@ -17,10 +17,9 @@ function login() {
                 response = JSON.parse(response);
                 $.each(response, function (i, val) {
                     console.log(val.nombre);
-                    sessionStorage.setItem(val.nombre);
-                    console.log(sessionStorage.getItem(val.nombre));
+                    sessionStorage.setItem("nombre", val.nombre);
                 });
-                //window.location.replace("../html/main.html");
+                window.location.replace("../html/main.html");
             }
         }
     });

@@ -29,7 +29,8 @@ body {
 }
 
 #bannerCont {
-    background-image: url(../img/cool-background_2.svg);
+    background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
+    /*background-image: url(../img/cool-background_2.svg);*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: contain;
