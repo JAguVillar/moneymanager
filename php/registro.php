@@ -27,8 +27,8 @@
     echo $sql;
     $consulta=$conn->prepare($sql);
     if ($conn->query($sql) === TRUE) {
-    echo "Subida con Exito";
+        echo "Subida con Exito";
     } else {
-    echo "Error:" . $sql . "<br>" . $conn->error;
+        echo "Error:" . $sql . "<br>" . $conn->error;
     }
 ?>

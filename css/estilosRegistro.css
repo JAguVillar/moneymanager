@@ -10,12 +10,12 @@ html {
 
 body {
     background: #f9f9f9;
-    background-image: url('../img/registro.svg');
-    height: 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 20%;
-    background-position: left bottom;
+    background-image: url('../img/registro.svg'), url(../img/blob-shape_4.svg);
+    height: 100%, 100%;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed, fixed;
+    background-size: 20%, 40%;
+    background-position: left bottom, left bottom;
 }
 
 #formContenedor {
