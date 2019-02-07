@@ -25,7 +25,17 @@ function registro() {
         },
         success: function (response) {
             console.log("Registrado");
+            Swal.fire({
+                title: 'Ya tienes una cuenta en MoneyManager!',
+                text: 'Haga click en el boton para volver a la pagina principal',
+                type: 'success',
+                confirmButtonText: 'OwO',
+                allowOutsideClick: false
+            }).then((result) => {
+                if (result.value) {
+                    window.location.replace("../index.html")
+                }
+            })
         }
     });
 }
-

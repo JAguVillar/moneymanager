@@ -1,21 +1,27 @@
 function login() {
     var email = $("#inputLogemail").val();
     var contra = $("#inputLogcontra").val();
-    
+
     $.ajax({
         url: "../php/login.php",
         method: "POST",
         dataType: "text",
         data: {
-            email : email,
-            contra : contra,
+            email: email,
+            contra: contra,
         },
         success: function (response) {
-            console.log(response);             
-            window.location.replace("../html/main.html")
-        },
-        error: {
-            
+            if (response == "0") {
+                console.log("no se encontro");
+            } else {
+                response = JSON.parse(response);
+                $.each(response, function (i, val) {
+                    console.log(val.nombre);
+                    sessionStorage.setItem(val.nombre);
+                    console.log(sessionStorage.getItem(val.nombre));
+                });
+                //window.location.replace("../html/main.html");
+            }
         }
     });
 }

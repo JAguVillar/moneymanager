@@ -16,7 +16,6 @@ body {
 }
 
 /* NAV */
-
 #dropdownMenuButton {
     background: none;
     border: none;
@@ -24,16 +23,21 @@ body {
 }
 
 /* DIV CABECERA, PLATA */
-
 #banner {
     height: 100px;
     width: 100%;
 }
 
-#infoExpensas {
+#bannerCont {
+    background-image: url(../img/cool-background_2.svg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
 }
 
-#expensas { 
+#infoExpensas {}
+
+#expensas {
     display: grid;
     grid-template-columns: 300px 1fr;
     margin: 0 auto;
@@ -57,7 +61,6 @@ body {
 /*-------------------------*/
 
 /* SECCION AGREGAR, QUITAR, STATS */
-
 #seleccion {
     display: flex;
     align-items: center;
@@ -71,33 +74,37 @@ body {
     font-weight: 700
 }
 
-#linkEstadisticas {
-}
+#linkEstadisticas {}
 
 #buscador {
     display: flex;
     padding: 10px 0 10px 0;
 }
 
-#buscador > input {
+#buscador>input {
     width: 100%;
 }
+
 /*-------------------------*/
 
 /* GASTOS */
-
 #gasto {
     width: 1180px;
     margin: auto;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -ms-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     background: whitesmoke;
-    border-top: 4px solid  #fa5252;
+    border-top: 4px solid #fa5252;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-.fila-top{
+.fila-top {
     display: grid;
     padding: 8px;
     grid-template-columns: 1fr 1fr;
@@ -119,7 +126,9 @@ body {
     color: #a1a1a1;
 }
 
-#tipoGasto, #horaGasto, #fechaGasto {
+#tipoGasto,
+#horaGasto,
+#fechaGasto {
     font-weight: 600;
 }
 
@@ -146,16 +155,13 @@ body {
 /*-------------------------*/
 
 /* MODAL */
+#modalNuevoGasto {}
 
-#modalNuevoGasto {
-    
-}
+.formularioGasto {}
 
-.formularioGasto {
-    
-}
-
-.formTop, .formMid, .formBot {
+.formTop,
+.formMid,
+.formBot {
     display: grid;
     align-items: flex-end;
 }

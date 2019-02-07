@@ -24,8 +24,11 @@
 
     $resultado = array();
     $consulta = $conn->query($sql);
-    while ($row = $consulta->fetch_assoc()) {
+    if ($row = $consulta->fetch_assoc()) {
         $resultado[] = $row;
+        echo json_encode($resultado);
     }
-    echo json_encode($resultado);
+    else {
+        echo "0";
+    }
 ?>
