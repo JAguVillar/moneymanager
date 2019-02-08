@@ -20,7 +20,7 @@
     $contra = $_POST["contra"];
 
 
-    $sql = "SELECT nombre, email, pass, divisa FROM usuarios WHERE email = '$email' AND pass = '$contra'";
+    $sql = "SELECT id, nombre, email, pass, divisa FROM usuarios WHERE email = '$email' AND pass = '$contra'";
 
     $resultado = array();
     $consulta = $conn->query($sql);

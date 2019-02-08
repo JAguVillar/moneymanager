@@ -17,18 +17,20 @@
 
     header("Access-Control-Allow-Origin: *");
 
-    $nombre = $_POST["nombre"];
-    $email = $_POST["email"];
-    $contra = $_POST["contra"];
-    $divisa = $_POST["divisa"];
+    $fin = $_POST["fin"];
+    $categoria = $_POST["categoria"];
+    $dinero = $_POST["dinero"];
+    $descripcion = $_POST["descripcion"];
+    $idUsuario = $_POST["idUsuario"];
 
-    $sql = "INSERT INTO usuarios (nombre, email, pass, divisa, balance, creacion) VALUES ('$nombre', '$email', '$contra', '$divisa', 0, NOW())";
+    $sql = "INSERT INTO movimientos (idUsuario, finMov, catMov, cdadMov, descrMov, fechaMov, horaMov) 
+            VALUES ('$idUsuario', '$fin', '$categoria', '$dinero', '$descripcion', NOW(), CURRENT_TIMESTAMP)";
 
     echo $sql;
     $consulta=$conn->prepare($sql);
     if ($conn->query($sql) === TRUE) {
         echo "Subida con Exito";
     } else {
-        echo "Error:" . $sql . "<br>" . $conn->error;
+        echo "0";
     }
 ?>

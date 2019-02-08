@@ -87,7 +87,7 @@
         <div class="modal-header" style="border: none;">
           <h5 class="modal-title" id="exampleModalCenterTitle">Agregar</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"><i class="fas fa-times" style="color: mediumslateblue;"></i></span>
+            <span aria-hidden="true"><i class="fas fa-times" style="color: #00C6CF;"></i></span>
           </button>
         </div>
         <div class="modal-body">
@@ -103,6 +103,34 @@
                 <div>
                   <label for="categoriaGastoModal" style="font-weight:700">Categoria</label>
                   <select class="form-control" id="categoriaGastoModal">
+                    <option selected id="">Elija...</option>
+                    <option value="Cuotas">Cuotas</option>
+                    <option value="Alquiler">Alquiler</option>
+                    <option value="Impuestos">Impuestos</option>
+                    <option value="Transporte Publico">Transporte Publico</option>
+                    <option value="Seguros">Seguros</option>
+                    <option value="Gastos Medicos">Gastos Medicos</option>
+                    <option value="Pago Deudas">Pago Deudas</option>
+                    <option value="Deposito">Deposito</option>
+                    <option value="Salario">Salario</option>
+                    <option value="Electronicos">Electronicos</option>
+                    <option value="Comestibles">Comestibles</option>
+                    <option value="Cuidado Personal">Cuidado Personal</option>
+                    <option value="Combustible">Combustible</option>
+                    <option value="Estacionamiento">Estacionamiento</option>
+                    <option value="Ropa">Ropa</option>
+                    <option value="Guarderia">Guarderia</option>
+                    <option value="Comidas de Trabajo">Comidas en Trabajo</option>
+                    <option value="Comer Afuera">Comer Afuera</option>
+                    <option value="Entretenimiento">Entretenimiento</option>
+                    <option value="Cigarrillos/Alcohol">Cigarrillos/Alcohol</option>
+                    <option value="Loteria">Loteria</option>
+                    <option value="Niñera">Niñera</option>
+                    <option value="Deportes y Recreacion">Deportes y Recreacion</option>
+                    <option value="Peluqueria/Spa">Peluqueria/Spa</option>
+                    <option value="Revistas/Diario/Libros">Revistas/Diario/Libros</option>
+                    <option value="Muebles">Muebles</option>
+                    <option value="In Game Money">In Game Money</option>
                   </select>
                 </div>
               </div>
@@ -110,7 +138,7 @@
                 <div>
                   <label for="cantidadModal" style="font-weight:700">Monto</label>
                   <select class="form-control" id="cantidadModal" onchange="color(this.value)">
-                    <option value=""></option>
+                    <option selected>Elija...</option>
                     <option value="mas">Ingreso</option>
                     <option value="menos">Gasto</option>
                   </select>
@@ -130,8 +158,9 @@
           </div>
         </div>
         <div class="modal-footer" style="border: none;">
-          <button type="button" class="btn btn" data-dismiss="modal" style="color: mediumslateblue">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="btnGuardar" style="background-color: mediumslateblue; border: none;">Guardar
+          <button type="button" class="btn btn" data-dismiss="modal" style="color: #00C6CF">Cerrar</button>
+          <button type="submit" class="btn btn-primary" id="btnGuardar" style="background-color: #00C6CF; border: none;"
+            onclick="nuevo()">Guardar
             Cambios</button>
         </div>
       </div>
@@ -162,9 +191,11 @@
       </div>
     </div>
   </div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
   crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
