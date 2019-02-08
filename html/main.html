@@ -52,6 +52,7 @@
     <div><span style="font-weight: 700;"></span><button type="button" class="btn btn-primary" id="botonGasto"
         data-toggle="modal" data-target="#modalNuevoGasto">AGREGAR NUEVO</i></button></div>
     <a href="" id="linkEstadisticas" style="font-weight: 700;">Estadisticas</a>
+    <button onclick="actualizarLista()">test</button>
   </div>
 
   <div class="container">
@@ -139,8 +140,8 @@
                   <label for="cantidadModal" style="font-weight:700">Monto</label>
                   <select class="form-control" id="cantidadModal" onchange="color(this.value)">
                     <option selected>Elija...</option>
-                    <option value="mas">Ingreso</option>
-                    <option value="menos">Gasto</option>
+                    <option value="+">Ingreso</option>
+                    <option value="-">Gasto</option>
                   </select>
                 </div>
                 <div>
@@ -160,7 +161,7 @@
         <div class="modal-footer" style="border: none;">
           <button type="button" class="btn btn" data-dismiss="modal" style="color: #00C6CF">Cerrar</button>
           <button type="submit" class="btn btn-primary" id="btnGuardar" style="background-color: #00C6CF; border: none;"
-            onclick="nuevo()">Guardar
+            onclick="validar()">Guardar
             Cambios</button>
         </div>
       </div>
@@ -168,28 +169,7 @@
   </div>
 
   <div id="listaGastos">
-    <div class="container" id="gasto" style="">
-      <div class="fila-top">
-        <div id="gananciaoGasto">ALQUILER</div>
-        <div id="cantidadGasto">$1500</div>
-      </div>
-      <div class="fila-medio">
-        <div id="tipoGasto">
-          <i class="uil uil-tag-alt" style="margin-right: 5px;"></i>Renta
-        </div>
-        <div id="horaGasto">
-          <i class="uil uil-clock-three" style="margin-right: 5px;"></i>0:45
-        </div>
-        <div id="fechaGasto">
-          <i class="uil uil-calender" style="margin-right: 5px;"></i>28/01/2019
-        </div>
-      </div>
-      <div class="fila-abajo">
-        <div id="descripcionGasto">
-          <i class="uil uil-file-alt" style="margin-right: 5px;"></i>Un mes menos
-        </div>
-      </div>
-    </div>
+
   </div>
 
 </body>
