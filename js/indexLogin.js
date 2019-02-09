@@ -18,8 +18,11 @@ function login() {
                 $.each(response, function (i, val) {
                     console.log(val.nombre);
                     console.log(val.id);
+                    console.log(val.balance);
+
                     sessionStorage.setItem("nombre", val.nombre);
                     sessionStorage.setItem("id", val.id);
+                    sessionStorage.setItem("balance", val.balance);
                 });
                 window.location.replace("../html/main.html");
             }

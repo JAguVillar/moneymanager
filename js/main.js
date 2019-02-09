@@ -1,5 +1,7 @@
 document.getElementById("nombre").innerHTML = sessionStorage.getItem("nombre");
-console.log(sessionStorage.getItem("id"));
+document.getElementById("actualmente").innerHTML = sessionStorage.getItem("balance");
+actualizarLista();
+
 
 function color(signo) {
     if (signo != "") {
@@ -12,7 +14,6 @@ function color(signo) {
         $("#dineroModal").css("background-image", "none");
     }
 }
-
 
 function nuevo() {
     console.log("pasa");
@@ -68,6 +69,7 @@ function nuevo() {
                 })
                 $('#modalNuevoGasto').modal('hide');
                 actualizarLista();
+                modificarBal(signo, dinero);
 
                 $("#finDinero").val(" ");
                 $("#categoriaGastoModal").val(" ");
@@ -78,6 +80,53 @@ function nuevo() {
                 $("#descripcionGastoModal").val(" ");
                 $("#dineroModal").css("background-image", "none");
             }
+        }
+    });
+}
+
+function modificarBal(signo, dinero) {
+    console.log(signo, dinero);
+    id = sessionStorage.getItem("id");
+    console.log(id);
+
+
+    $.ajax({
+        method: "POST",
+        url: "../php/traerBalance.php",
+        dataType: "text",
+        data: {
+            id: sessionStorage.getItem("id"),
+        },
+        success: function (response) {
+            response = JSON.parse(response);
+            $.each(response, function (i, val) {
+                var balance = val.balance;
+                console.log(signo, dinero);
+                if (signo == "+") {
+                    balance = balance + dinero;
+                } else {
+                    balance = balance - dinero;
+                }
+                console.log(balance);
+
+                $.ajax({
+                    method: "POST",
+                    url: "../php/modificarBalance.php",
+                    dataType: "text",
+                    data: {
+                        id: sessionStorage.getItem("id"),
+                        balance: balance,
+                    },
+                    success: function (response) {
+                        response = JSON.parse(response);
+                        $.each(response, function (i, val) {
+                            document.getElementById("actualmente").innerHTML = val.balance;
+                        });
+
+                    }
+                });
+
+            });
         }
     });
 }

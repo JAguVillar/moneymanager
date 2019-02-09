@@ -12,23 +12,19 @@
         die("Conexion Fallo".mysqli_connect_error());
     }
     else {
+
     }
 
     header("Access-Control-Allow-Origin: *");
 
-    $email = $_POST["email"];
-    $contra = $_POST["contra"];
+    $id = $_POST["id"];
 
-
-    $sql = "SELECT id, nombre, email, pass, divisa, balance FROM usuarios WHERE email = '$email' AND pass = '$contra'";
+    $sql = "SELECT balance FROM usuarios WHERE id = '$id'";
 
     $resultado = array();
     $consulta = $conn->query($sql);
     if ($row = $consulta->fetch_assoc()) {
         $resultado[] = $row;
-        echo json_encode($resultado);
     }
-    else {
-        echo "0";
-    }
+    echo json_encode($resultado);
 ?>
