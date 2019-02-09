@@ -2,12 +2,17 @@ document.getElementById("nombre").innerHTML = sessionStorage.getItem("nombre");
 console.log(sessionStorage.getItem("id"));
 
 function color(signo) {
-    if (signo == '+') {
-        $("#dineroModal").css("background-image", "linear-gradient(to top, #9be15d 0%, #00e3ae 100%");
+    if (signo != "") {
+        if (signo == '+') {
+            $("#dineroModal").css("background-image", "linear-gradient(to top, #9be15d 0%, #00e3ae 100%");
+        } else {
+            $("#dineroModal").css("background-image", "linear-gradient(to top, #f77062 0%, #fe5196 100%");
+        }
     } else {
-        $("#dineroModal").css("background-image", "linear-gradient(to top, #f77062 0%, #fe5196 100%");
+        $("#dineroModal").css("background-image", "none");
     }
 }
+
 
 function nuevo() {
     console.log("pasa");
@@ -16,6 +21,13 @@ function nuevo() {
     var dinero = $("#dineroModal").val();
     var descripcion = $("#descripcionGastoModal").val();
     var signo = $("#cantidadModal").val();
+    var fecha = $("#fechaModal").val();
+
+    fin = fin.toUpperCase();
+
+    var primeraLetra = descripcion.charAt(0).toUpperCase();
+    descripcion = descripcion.slice(1);
+    descripcion = primeraLetra + descripcion;
 
     console.log(signo);
 
@@ -30,13 +42,14 @@ function nuevo() {
             descripcion: descripcion,
             idUsuario: sessionStorage.getItem("id"),
             signo: signo,
+            fecha: fecha,
         },
         success: function (response) {
             if (response == "0") {
                 Swal.fire({
                     position: 'top-end',
                     type: 'error',
-                    title: 'Your work has been saved',
+                    title: 'Hubo un error :(',
                     backdrop: false,
                     toast: true,
                     showConfirmButton: false,
@@ -47,13 +60,23 @@ function nuevo() {
                 Swal.fire({
                     position: 'top-end',
                     type: 'success',
-                    title: 'Your work has been saved',
+                    title: 'Se agrego con exito!',
                     backdrop: false,
                     toast: true,
                     showConfirmButton: false,
                     timer: 2500
                 })
                 $('#modalNuevoGasto').modal('hide');
+                actualizarLista();
+
+                $("#finDinero").val(" ");
+                $("#categoriaGastoModal").val(" ");
+                $("#dineroModal").val(" ");
+                $("#descripcionGastoModal").val(" ");
+                $("#cantidadModal").val(" ");
+                $("#fechaModal").val(" ");
+                $("#descripcionGastoModal").val(" ");
+                $("#dineroModal").css("background-image", "none");
             }
         }
     });
@@ -66,28 +89,44 @@ function validar() {
     var descripcion = $("#descripcionGastoModal").val();
     var signo = $("#cantidadModal").val();
 
-    console.log("whack");
+    var fecha = $("#fechaModal").val();
+    console.log(fecha);
 
-    if (fin == "") {
-        console.log("AAaaa");
-        setTimeout(function () { $("#finDinero").css("border", "2px solid red"); }, 3000);
+
+    if (fin != "" && $("#categoriaGastoModal").val() != "" && dinero != "" && $("#cantidadModal").val() != "" && fecha != "") {
+        nuevo();
+    } else {
+        if (fin == "") {
+            $("#finDinero").css("border", "2px solid #ff6b6b");
+        } else {
+            $("#finDinero").css("border", "0px");
+        }
+
+        if ($("#categoriaGastoModal").val() == "") {
+            $("#categoriaGastoModal").css("border", "2px solid #ff6b6b");
+        } else {
+            $("#categoriaGastoModal").css("border", "0px");
+        }
+
+        if (dinero == "") {
+            $("#dineroModal").css("border", "2px solid #ff6b6b");
+        } else {
+            $("#dineroModal").css("border", "0px");
+        }
+
+        if ($("#cantidadModal").val() == "") {
+            $("#cantidadModal").css("border", "2px solid #ff6b6b");
+        } else {
+            $("#cantidadModal").css("border", "0px");
+        }
+
+        if (fecha == "") {
+            $("#fechaModal").css("border", "2px solid #ff6b6b");
+        } else {
+            $("#fechaModal").css("border", "0px");
+        }
     }
 
-    if ($("#finDinero").val() == " ") {
-
-    }
-    if (categoria == " ") {
-        console.log("no");
-        $("#categoriaGastoModal").css("border", "2px solid red");
-    }
-    if (dinero == " ") {
-        console.log("no");
-        $("#dineroModal").css("border", "2px solid red");
-    }
-    if (signo == " ") {
-        console.log("no");
-        $("#cantidadModal").css("border", "2px solid red");
-    }
 }
 
 function actualizarLista() {
@@ -119,8 +158,17 @@ function actualizarLista() {
                     }
 
                     elementoLista +=
-                        `<div id="gananciaoGasto">` + val.finMov + `</div>` +
-                        `<div id="cantidadGasto">` + val.cdadMov + `</div>` +
+                        `<div id="gananciaoGasto">` + val.finMov + `</div>`;
+
+                    if (val.signoMov == "-") {
+                        elementoLista +=
+                            `<div id="cantidadGasto" style="color: #fa5252">- ` + val.cdadMov + `</div>`;
+                    } else {
+                        elementoLista +=
+                            `<div id="cantidadGasto" style="color: #51cf66">+ ` + val.cdadMov + `</div>`;
+                    }
+
+                    elementoLista +=
                         `</div>` +
                         `<div class="fila-medio">` +
                         `<div id="tipoGasto">` +

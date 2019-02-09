@@ -52,7 +52,6 @@
     <div><span style="font-weight: 700;"></span><button type="button" class="btn btn-primary" id="botonGasto"
         data-toggle="modal" data-target="#modalNuevoGasto">AGREGAR NUEVO</i></button></div>
     <a href="" id="linkEstadisticas" style="font-weight: 700;">Estadisticas</a>
-    <button onclick="actualizarLista()">test</button>
   </div>
 
   <div class="container">
@@ -99,12 +98,12 @@
                   <label for="finDinero" style="font-weight:700">En que se <span style="font-weight:700; color: #fa5252;">GASTÓ</span>?
                     / </label>
                   <label for="finDinero" style="font-weight:700">Como se <span style="font-weight:700; color: #51cf66">GANÓ</span>?</label>
-                  <input type="text" class="form-control" id="finDinero" placeholder="Ingrese">
+                  <input type="text" class="form-control" id="finDinero" placeholder="Ingrese" style="border: none; background-color: #e9ecef">
                 </div>
                 <div>
-                  <label for="categoriaGastoModal" style="font-weight:700">Categoria</label>
-                  <select class="form-control" id="categoriaGastoModal">
-                    <option selected id="">Elija...</option>
+                  <label for="categoriaGastoModal" style="font-weight:700;">Categoria</label>
+                  <select class="form-control" id="categoriaGastoModal" style="border: none; background-color: #e9ecef">
+                    <option selected value="">Elija...</option>
                     <option value="Cuotas">Cuotas</option>
                     <option value="Alquiler">Alquiler</option>
                     <option value="Impuestos">Impuestos</option>
@@ -138,22 +137,30 @@
               <div class="formMid">
                 <div>
                   <label for="cantidadModal" style="font-weight:700">Monto</label>
-                  <select class="form-control" id="cantidadModal" onchange="color(this.value)">
-                    <option selected>Elija...</option>
+                  <select class="form-control" id="cantidadModal" onchange="color(this.value)" style="border: none; background-color: #e9ecef">
+                    <option selected value="">Elija...</option>
                     <option value="+">Ingreso</option>
                     <option value="-">Gasto</option>
                   </select>
                 </div>
                 <div>
                   <label for="dineroModal"></label>
-                  <input type="number" class="form-control" id="dineroModal" placeholder="Ingrese un monto" style="color: black">
+                  <input type="number" class="form-control" id="dineroModal" placeholder="0.00" min="0" pattern="^\d*(\.\d{0,2})?$"
+                    style="color: black; border: none; background-color: #e9ecef" step=".01">
+                </div>
+              </div>
+              <div class="formMidBot">
+                <div>
+                  <label for="fechaModal" style="font-weight:700">Fecha</label>
+                  <input type="date" class="form-control" id="fechaModal" style="color: black; border: none; background-color: #e9ecef">
                 </div>
               </div>
             </div>
             <div class="formBot">
               <div>
                 <label for="descripcionGastoModal" style="font-weight:700">Descripcion</label>
-                <textarea class="form-control" id="descripcionGastoModal" placeholder="Ingrese una descripcion de su gasto / ganancia"></textarea>
+                <textarea class="form-control" id="descripcionGastoModal" placeholder="Ingrese una descripcion de su gasto / ganancia"
+                  style="border: none; background-color: #e9ecef"></textarea>
               </div>
             </div>
           </div>

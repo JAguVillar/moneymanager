@@ -23,9 +23,10 @@
     $descripcion = $_POST["descripcion"];
     $idUsuario = $_POST["idUsuario"];
     $signo = $_POST["signo"];
+    $fecha = $_POST["fecha"];
 
     $sql = "INSERT INTO movimientos (idUsuario, finMov, catMov, signoMov, cdadMov, descrMov, fechaMov, horaMov) 
-            VALUES ('$idUsuario', '$fin', '$categoria', '$signo', '$dinero', '$descripcion', NOW(), CURRENT_TIMESTAMP)";
+            VALUES ('$idUsuario', '$fin', '$categoria', '$signo', '$dinero', '$descripcion', '$fecha', CURRENT_TIMESTAMP)";
 
     echo $sql;
     $consulta=$conn->prepare($sql);
