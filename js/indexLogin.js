@@ -29,3 +29,13 @@ function login() {
         }
     });
 }
+
+function cambiarIcono() {
+    $("#ojo").toggleClass("uil uil-eye");
+    var input = document.getElementById("inputLogcontra");
+    if (input.type === "password") {
+        input.type = "text";
+    } else {
+        input.type = "password";
+    }
+}

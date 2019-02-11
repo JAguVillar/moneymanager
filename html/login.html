@@ -32,7 +32,7 @@
             <div class="form-group">
                 <div class="input-group mb-2">
                     <div class="input-group-prepend">
-                        <div class="input-group-text" style="background: none;"><i class='uil uil-at' style="color: #a1a1a1"></i></div>
+                        <div class="input-group-text" style="background: none;"><i class='uil uil-at' style="opacity: 0.8;"></i></div>
                     </div>
                     <input type="text" class="form-control" id="inputLogemail" placeholder="Ingrese su email">
                 </div>
@@ -41,7 +41,7 @@
                 <div class="input-group mb-2">
                     <div class="input-group-prepend">
                         <div class="input-group-text" style="background: none;""><i class='uil uil-eye-slash' style="
-                            color: #a1a1a1"></i></div>
+                            opacity: 0.8;" id="ojo" onclick="cambiarIcono()"></i></div>
                     </div>
                     <input type="password" class="form-control" id="inputLogcontra" placeholder="Ingrese su contraseña">
                 </div>
@@ -49,9 +49,9 @@
             <div id="botones" class="d-flex justify-content-end" style="margin-top: 10px">
                 <a href="../index.html">
                     <button type="button" class="btn btn-outline-light" id="btnLogin" data-toggle="modal" data-target="#modalLogin"
-                        style="border: 0.5px solid #00C6CF; color: #00C6CF; margin-right: 10px;">Volver a Inicio</button>
+                        style="border: 0.5px solid #00C6CF; color: #00C6CF; margin-right: 10px; font-weight: 700">Volver a Inicio</button>
                 </a>
-                <button type="button" class="btn btn-primary" id="btnLog" style="background-color: #00C6CF; border: none;"
+                <button type="button" class="btn btn-primary" id="btnLog" style="background-color: #00C6CF; border: none; font-weight: 700"
                     onclick="login()">Acceder</button>
             </div>
         </div>

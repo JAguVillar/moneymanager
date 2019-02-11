@@ -27,22 +27,21 @@
 
   <div id="include"></div>
 
-  <div id="bannerCont" class="container-fluid">
-    <div id="banner" class="container" style="padding: 0">
-      <p style="font-weight: 600; margin: 0">Bienvenido,</p>
-      <p id="nombre" style="font-weight: 700; font-size: 1.5em; margin: 0"></p>
-    </div>
-    <div id="infoExpensas">
-      <div class="container" id="expensas">
-        <div>
-          <p style="margin: 0;">Balance<a href="#" data-tippy="Editar Balance" data-tippy-arrow="true"
-              data-tippy-arrowType="rounded" data-tippy-placement="right" data-tippy-theme="light" style="color: inherit; text-align: right"><i
-                class='uil uil-pen'></i></a></p>
-          <span>$ </span><span id="actualmente"></span>
-        </div>
-        <div>
-          <span id="gastado">Has gastado un total de $123456 en el mes de Enero</span>
-        </div>
+  <div class="container-fluid" style="background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%); background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: contain;">
+    <div class="container" id="banner">
+      <div id="bienvenido">
+        <span style="font-weight: 600; font-size: 1.5em">Bienvenido,</span>
+        <span style="font-weight: 900; font-size: 1.5em;" id="nombre"></span>
+      </div>
+      <div id="balance">
+        <p>Balance<a href="#" data-tippy="Editar Balance" data-tippy-arrow="true" data-tippy-arrowType="rounded"
+            data-tippy-placement="right" data-tippy-theme="light" style="color: inherit; text-align: right"><i class='uil uil-pen'></i></a></p>
+        <span style="font-size: 1.5em; font-weight: 600">$ </span><span id="actualmente"></span>
+      </div>
+      <div id="gastado">
+        <span>Has gastado un total de $123456 en el mes de Enero</span>
       </div>
     </div>
   </div>
@@ -123,11 +122,13 @@
                     <option value="Comidas de Trabajo">Comidas en Trabajo</option>
                     <option value="Comer Afuera">Comer Afuera</option>
                     <option value="Entretenimiento">Entretenimiento</option>
-                    <option value="Cigarrillos/Alcohol">Cigarrillos/Alcohol</option>
+                    <option value="Cigarrillos/Alcohol/Drogas">Cigarrillos/Alcohol/Drogas</option>
                     <option value="Loteria">Loteria</option>
                     <option value="Niñera">Niñera</option>
                     <option value="Deportes y Recreacion">Deportes y Recreacion</option>
                     <option value="Peluqueria/Spa">Peluqueria/Spa</option>
+                    <option value="Dinero Encontrado">Dinero Encontrado</option>
+                    <option value="Premio/Apuesta">Premio/Apuesta</option>
                     <option value="Revistas/Diario/Libros">Revistas/Diario/Libros</option>
                     <option value="Muebles">Muebles</option>
                     <option value="In Game Money">In Game Money</option>

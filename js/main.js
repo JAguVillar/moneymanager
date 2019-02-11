@@ -1,7 +1,20 @@
 document.getElementById("nombre").innerHTML = sessionStorage.getItem("nombre");
-document.getElementById("actualmente").innerHTML = sessionStorage.getItem("balance");
 actualizarLista();
 
+$.ajax({
+    method: "POST",
+    url: "../php/traerBalance.php",
+    dataType: "text",
+    data: {
+        id: sessionStorage.getItem("id"),
+    },
+    success: function (response) {
+        response = JSON.parse(response);
+        $.each(response, function (i, val) {
+            document.getElementById("actualmente").innerHTML = val.balance;
+        });
+    }
+});
 
 function color(signo) {
     if (signo != "") {
@@ -89,7 +102,6 @@ function modificarBal(signo, dinero) {
     id = sessionStorage.getItem("id");
     console.log(id);
 
-
     $.ajax({
         method: "POST",
         url: "../php/traerBalance.php",
@@ -103,11 +115,15 @@ function modificarBal(signo, dinero) {
                 var balance = val.balance;
                 console.log(signo, dinero);
                 if (signo == "+") {
-                    balance = balance + dinero;
+                    balance = parseFloat(balance) + parseFloat(dinero);
                 } else {
-                    balance = balance - dinero;
+                    balance = parseFloat(balance) - parseFloat(dinero);
                 }
-                console.log(balance);
+                console.log("RESULTADO SR" + balance);
+
+                balanceMandar = parseFloat(balance);
+                console.log("parseado" + balance);
+
 
                 $.ajax({
                     method: "POST",
@@ -115,14 +131,29 @@ function modificarBal(signo, dinero) {
                     dataType: "text",
                     data: {
                         id: sessionStorage.getItem("id"),
-                        balance: balance,
+                        balance: balanceMandar,
                     },
                     success: function (response) {
-                        response = JSON.parse(response);
-                        $.each(response, function (i, val) {
-                            document.getElementById("actualmente").innerHTML = val.balance;
-                        });
-
+                        if (response == "0") {
+                            console.log("error");
+                        } else {
+                            console.log("updated");
+                            $.ajax({
+                                method: "POST",
+                                url: "../php/traerBalance.php",
+                                dataType: "text",
+                                data: {
+                                    id: id,
+                                },
+                                success: function (response) {
+                                    response = JSON.parse(response);
+                                    $.each(response, function (i, val) {
+                                        document.getElementById("actualmente").innerHTML = (" ");
+                                        document.getElementById("actualmente").innerHTML = val.balance;
+                                    });
+                                }
+                            });
+                        }
                     }
                 });
 
@@ -175,7 +206,6 @@ function validar() {
             $("#fechaModal").css("border", "0px");
         }
     }
-
 }
 
 function actualizarLista() {
@@ -234,6 +264,13 @@ function actualizarLista() {
                         `<div id="descripcionGasto">` +
                         `<i class="uil uil-file-alt" style="margin-right: 5px;"></i>` + val.descrMov +
                         `</div>` +
+                        `<div id="editar" data-tippy="Editar" data-tippy-arrow="true" data-tippy-arrowType="rounded"
+                        data-tippy-placement="top" data-tippy-theme="light">
+                        <i class='uil uil-edit' id="editarGasto"></i>
+                        </div>
+                        <div id="eliminar" data-tippy="Eliminar" data-tippy-arrow="true" data-tippy-arrowType="rounded"
+                        data-tippy-placement="top" data-tippy-theme="light">
+                        <i class='uil uil-trash-alt' id="eliminarGasto"></i></div>` +
                         `</div>` +
                         `</div>`;
                     $("#listaGastos").append(elementoLista);

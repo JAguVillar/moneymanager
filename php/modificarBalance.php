@@ -11,23 +11,19 @@
     if(!$conn) {
         die("Conexion Fallo".mysqli_connect_error());
     }
-    else {
-
-    }
 
     header("Access-Control-Allow-Origin: *");
 
     $balance = $_POST["balance"];
+    $balance = floatval($balance);
     $id = $_POST["id"];
 
-    $sql = "UPDATE usuarios SET balance = '$balance'";
+    $sql = "UPDATE usuarios SET balance = '$balance' WHERE id = '$id'";
 
-    $sql_ = "SELECT balance FROM usuarios WHERE id = '$id'";
-
-    $resultado = array();
-    $consulta = $conn->query($sql_);
-    if ($row = $consulta->fetch_assoc()) {
-        $resultado[] = $row;
+    $consulta=$conn->prepare($sql);
+    if ($conn->query($sql) === TRUE) {
+	echo "Subida con Exito";
+    } else {
+	echo "0";
     }
-    echo json_encode($resultado);
 ?>
