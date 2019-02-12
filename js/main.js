@@ -219,11 +219,12 @@ function actualizarLista() {
             id: sessionStorage.getItem("id"),
         },
         success: function (response) {
-            if (response == "0") {
-                console.log("no se encontro mov para este usuario");
+            if (response.length == 2) {
+                var elementoLista = `<div class="container" style="margin-top:20px"><img src="../img/vacio.svg" alt="" style="margin-left: auto; width: 50%; margin-right: auto; display: block;"></div>`;
+                $("#listaGastos").html(elementoLista);
             } else {
+                console.log("pasarella");
                 response = JSON.parse(response);
-                console.log(response);
                 $.each(response, function (i, val) {
                     if (val.signoMov == "-") {
                         var elementoLista =
