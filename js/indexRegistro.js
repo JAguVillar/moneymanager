@@ -39,3 +39,13 @@ function registro() {
         }
     });
 }
+
+function cambiarIcono() {
+    $("#ojo").toggleClass("uil uil-eye");
+    var input = document.getElementById("inputContra");
+    if (input.type === "password") {
+        input.type = "text";
+    } else {
+        input.type = "password";
+    }
+}
