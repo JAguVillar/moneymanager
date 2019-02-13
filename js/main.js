@@ -208,6 +208,39 @@ function validar() {
     }
 }
 
+$(document).on('click', "#eliminar", function () {
+    id = $(this).attr("value");
+    $.ajax({
+        method: "POST",
+        url: "../php/eliminarMov.php",
+        dataType: "text",
+        data: {
+            id: id,
+        },
+        success: function (response) {
+            console.log("eraseddd");
+            Swal.fire({
+                title: 'Seguro que desea eliminar?',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar!'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'Se borro con exito el elemento.',
+                        'success',
+                        actualizarLista(),
+                    )
+                }
+            })
+        }
+    });
+});
+
+
 function actualizarLista() {
     $("#listaGastos").html('');
 
@@ -270,7 +303,7 @@ function actualizarLista() {
                         <i class='uil uil-edit' id="editarGasto"></i>
                         </div>
                         <div id="eliminar" data-tippy="Eliminar" data-tippy-arrow="true" data-tippy-arrowType="rounded"
-                        data-tippy-placement="top" data-tippy-theme="light">
+                        data-tippy-placement="top" data-tippy-theme="light" value="` + val.idMov + `">
                         <i class='uil uil-trash-alt' id="eliminarGasto"></i></div>` +
                         `</div>` +
                         `</div>`;
