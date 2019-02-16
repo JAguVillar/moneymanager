@@ -77,6 +77,7 @@ i {
 
 #buscador {
     display: flex;
+    justify-content: center;
     padding: 10px 0 10px 0;
 }
 
@@ -146,23 +147,16 @@ i {
     color: #aaa;
     display: grid;
     padding: 8px;
-    grid-template-columns: 1fr 40px 40px;
+    grid-template-columns: 1fr 1fr;
 }
 
-#editar {
-    font-size: 20px;
-    text-align: center;
-    background: #e9ecef;
-    color: none;
-    -webkit-transition: background 0.2s, color 0.2s;
-    /*-webkit-transition: color 0.2s;*/
-    transition: background 0.2s, color 0.2s;
-    /*transition: color 0.2s;*/
-    cursor: pointer;
-    border-top-left-radius: 30%;
+#control {
+    display: flex;
+    justify-content: flex-end;
 }
 
 #eliminar {
+    width: 40px;
     font-size: 20px;
     text-align: center;
     background: #e9ecef;
@@ -173,11 +167,6 @@ i {
     /*transition: color 0.2s;*/
     cursor: pointer;
     border-bottom-right-radius: 30%;
-}
-
-#editar:hover {
-    background: #ffd43b;
-    color: midnightblue;
 }
 
 #eliminar:hover {

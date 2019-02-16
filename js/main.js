@@ -1,6 +1,14 @@
 document.getElementById("nombre").innerHTML = sessionStorage.getItem("nombre");
 actualizarLista();
 
+// tippy('#eliminar', {
+//     content: 'Eliminar',
+//     arrow: true,
+//     arrowType: "rounded",
+//     placement: "top",
+//     theme: "light",
+// })
+
 $.ajax({
     method: "POST",
     url: "../php/traerBalance.php",
@@ -210,34 +218,33 @@ function validar() {
 
 $(document).on('click', "#eliminar", function () {
     id = $(this).attr("value");
-    $.ajax({
-        method: "POST",
-        url: "../php/eliminarMov.php",
-        dataType: "text",
-        data: {
-            id: id,
-        },
-        success: function (response) {
-            console.log("eraseddd");
-            Swal.fire({
-                title: 'Seguro que desea eliminar?',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, eliminar!'
-            }).then((result) => {
-                if (result.value) {
-                    Swal.fire(
-                        'Eliminado!',
-                        'Se borro con exito el elemento.',
-                        'success',
-                        actualizarLista(),
-                    )
-                }
-            })
+    Swal.fire({
+        title: 'Seguro que desea eliminar?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar!'
+    }).then((result) => {
+        if (result.value) {
+            Swal.fire(
+                'Eliminado!',
+                'Se borro con exito el elemento.',
+                'success',
+                $.ajax({
+                    method: "POST",
+                    url: "../php/eliminarMov.php",
+                    dataType: "text",
+                    data: {
+                        id: id,
+                    },
+                    success: function (response) {
+                        actualizarLista();
+                    }
+                }),
+            )
         }
-    });
+    })
 });
 
 
@@ -253,7 +260,7 @@ function actualizarLista() {
         },
         success: function (response) {
             if (response.length == 2) {
-                var elementoLista = `<div class="container" style="margin-top:20px"><img src="../img/vacio.svg" alt="" style="margin-left: auto; width: 50%; margin-right: auto; display: block;"></div>`;
+                var elementoLista = `<div class="container" style="margin-top: 20px"><img src="../img/vacio.svg" alt="" style="margin-left: auto; width: 50%; margin-right: auto; display: block;"></div>`;
                 $("#listaGastos").html(elementoLista);
             } else {
                 console.log("pasarella");
@@ -298,11 +305,8 @@ function actualizarLista() {
                         `<div id="descripcionGasto">` +
                         `<i class="uil uil-file-alt" style="margin-right: 5px;"></i>` + val.descrMov +
                         `</div>` +
-                        `<div id="editar" data-tippy="Editar" data-tippy-arrow="true" data-tippy-arrowType="rounded"
-                        data-tippy-placement="top" data-tippy-theme="light">
-                        <i class='uil uil-edit' id="editarGasto"></i>
-                        </div>
-                        <div id="eliminar" data-tippy="Eliminar" data-tippy-arrow="true" data-tippy-arrowType="rounded"
+                        `<div id="control">` +
+                        `<div id="eliminar" data-tippy="Eliminar" data-tippy-arrow="true" data-tippy-arrowType="rounded"
                         data-tippy-placement="top" data-tippy-theme="light" value="` + val.idMov + `">
                         <i class='uil uil-trash-alt' id="eliminarGasto"></i></div>` +
                         `</div>` +
